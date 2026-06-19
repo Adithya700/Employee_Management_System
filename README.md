@@ -12,20 +12,19 @@ A RESTful Employee Management System built using **Flask** and **Blueprints**. T
 *  Delete an employee
 *  Modular project structure using Flask Blueprints
 *  JSON-based REST API
-
----
-
-##  Tech Stack
+  
+ # # Tech Stack
 
 * Python 
-* Flask
+* Flask 
+* SQLite 
 * Flask Blueprints
 * JSON
 * Service Layer Architecture
 
 ---
 
-## Project Structure
+##  Project Structure
 
 ```text
 employee-management-api/
@@ -35,13 +34,36 @@ employee-management-api/
 │   │   └── emp_routes.py
 │   ├── services/
 │   │   └── emp_service.py
-│   └── models/
-│       └── employee.py
+│   ├── models/
+│   |     └── employee.py
+|   |___ __init__.py
+│   |___ config.py
 │
+│__ create_db.py
+├── employees.db
 ├── run.py
 ├── requirements.txt
 └── README.md
 ```
+
+---
+
+##  Database
+
+This project uses **SQLite** as the database for storing employee records.
+
+### Employee Table Schema
+
+| Field      | Type    | Description                |
+| ---------- | ------- | -------------------------- |
+| id         | INTEGER | Primary Key                |
+| name       | TEXT    | Employee's name            |
+| email      | TEXT    | Employee's email address   |
+| department | TEXT    | Department of the employee |
+| salary     | FLOAT   | Employee's salary          |
+
+The database file (`employees.db`) is automatically created and used to persist employee information locally.
+
 
 ---
 
@@ -225,4 +247,3 @@ curl http://127.0.0.1:5000/employees/
 ## Author
 ADITHYA K S
 
-Built using Flask to practice REST API development, Flask Blueprints, and layered application architecture.
